@@ -77,7 +77,7 @@ function v_forcelogin() {
 	nocache_headers();
 
 	// Redirect unauthorized visitors
-	wp_safe_redirect( wp_login_url( $redirect_url ), 302 );
+	wp_safe_redirect( wp_login_url( $redirect_url ) . '&option=saml_user_login', 302 );
 	exit;
 }
 add_action( 'template_redirect', 'v_forcelogin' );
